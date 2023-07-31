@@ -1,0 +1,9 @@
+&CreateBinaryModel_frame = tk.Frame(root)# bloc ligne de formulaire
+&CreateBinaryModel_frame.pack()
+&CreateBinaryModel_var_check = tk.BooleanVar(CreateBinaryModel_frame)# variable d'état de la case à cocher
+&CreateBinaryModel_var_check.set(False)# valeur par défaut
+&CreateBinaryModel_button = tk.Checkbutton(CreateBinaryModel_frame, text="", variable=CreateBinaryModel_var_check)# Créer une case à cocher
+&CreateBinaryModel_button.pack(side=tk.LEFT)
+&label = tk.Label(CreateBinaryModel_frame, text="avec les banques binaires d'images extraites, entrainer et creer un/des modele(s) de classif. binaire .h5")
+&label.pack(side=tk.LEFT)
+&command += "global CreateBinaryModel_var_check; CreateBinaryModel_var_check = CreateBinaryModel_var_check.get();"

@@ -1,0 +1,97 @@
+________________________________________________________________________________
+|                                                                              |
+| Rodent Pain Tracker                                                          |
+| version : 2023.7.18
+| contributeurs : Robin LIOUTAUD, François GABRIELLI (UMR 1107 Inserm/UCA)     |
+| propriété : UMR 1107 Neurodol équipe 2 Inserm/Université Clermont Auvergne   |
+| licence : libre d'utilisation/modification/distribution, doit citer l'auteur |
+|           (équivalent à CeCILL et CC BY 4.0 et GPL v2)                       |
+| contact : robin.lioutaud@etu.umontpellier.fr                                 |
+|______________________________________________________________________________|
+=====================================
+Guide de mise en route ~ Installation
+=====================================
+_________________________
+1) Installation de Python
+¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨
+Si ce n'est pas déjà fait, installez Python.
+____________________________________________________________________________
+2) Installation d'Anaconda & de CUDA pour utiliser l'accélération GPU NVIDIA
+¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨
+(facultatif mais recommandé) Si votre ordinateur est équipé d'une carte graphique NVIDIA relativement récente (compatible avec CUDA),
+vous pouvez utiliser cette carte graphique (GPU) pour que le programme que vous allez utiliser fonctionne plus rapidement.
+Pour ce faire, installez Anaconda.
+Une fois installé, ouvrez Anaconda Prompt (c'est-à-dire le terminal Conda, et non pas l'invite de commande).
+Saisissez les 3 instructions suivantes (en vérifiant leur bonne installation) :
+vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+conda install -c conda-forge cudatoolkit=11.2 cudnn=8.1.0
+python -m pip install "tensorflow<2.11"
+python -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_____________________________________________
+3) Exécution du programme Rodent Pain Tracker
+¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨
+Dans le terminal Anaconda Prompt (ou à défaut, dans l'invite de commande de votre système),
+positionnez-vous à l'emplacement où vous avez déposé le dossier logiciel Rodent Pain Tracker.
+Astuce : pour revenir en arrière ou avancer dans l'arborescence des dossiers, faires .. ou cd NomDeDossier respectivement.
+Une fois arrivé au bon emplacement, vous devriez avoir à peu près ceci :
+vvvvvvvvvvvvvvvvvvvvvvvvv
+?:\...\RodentPainTracker>
+^^^^^^^^^^^^^^^^^^^^^^^^^
+Alors, écrivez l'instruction suivante pour exécuter le programme (le MAIN.py) :
+vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+?:\...\RodentPainTracker>python -B MAIN.py
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Astuce : l'option -B désactive la création de dossiers _pycache_ suite à l'exécution, dont on n'aura pas besoin.
+______________________________________________
+4) Installation des modules Python nécessaires
+¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨
+Le programme utilise des modules Python pour fonctionner.
+Au début notamment, il peut être nécessaire, si ça ne se fait pas tout seul, de donner manuellement instruction d'installer tel ou tel module.
+Si vous avez un message d'erreur disant que tel ou tel module est manquant, non installé, vous pouvez l'installer avec cette instruction, dans le terminal toujours :
+vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+pip install LeNomDuModuleQuIlFautInstaller
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Puis à partir de là, réinstaller au besoin les modules nécessaires (pip install ...).
+Astuce : attention le nom du module ne correspond pas forcément au nom pour l'installation, il peut y avoir des variantes syntaxiques mineures,
+dans ce cas, recherchez sur internet le nom qu'il faut saisir pour installer ce module suite à pip install ... .
+===================
+Guide d'utilisation
+===================
+_____________________________________________
+1) Lancement du programme Rodent Pain Tracker
+¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨
+Une fois le programme bien installé, voilà comment l'utiliser.
+Exécutez le MAIN.py (grâce à l'instruction donnée plus haut).
+_____________________________________
+1) Sélection du répertoire à analyser
+¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨
+Une fenêtre va s'ouvrir,
+et vous devez sélectionner le DOSSIER contenant les SOUS-DOSSIERS à analyser.
+/!\ Attention, il faut bien respecter ladite structure :
+
+le_dossier_que_je_sélectionne
+└le_dossier_1_à_analyser
+ └00001.mts
+ └00002.mts
+ └00003.mts
+ └...
+└le_dossier_2_à_analyser
+ └00001.mts
+ └00002.mts
+ └00003.mts
+ └...
+└...
+_________________________________
+2) Choix des analyses à effectuer
+¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨
+Une seconde fenêtre va s'ouvrir.
+Sur chaque ligne, une analyse est proposée.
+Pour effectuer l'analyse, cochez la case en début de ligne.
+Pour personnaliser les options de l'analyse, le cas échéant adaptez les options proposées sur la ligne.
+/!\ Attention, lisez bien, car certaines analyses ont besoin du résultat d'une analyse précédente pour pouvoir fonctionner,
+(par exemple, il faut avoir généré les banques d'images, pour pouvoir entraîner un modèle de classification sur ces images).
+_______________________
+|                     |
+| Vous avez terminé ! |
+|_____________________|

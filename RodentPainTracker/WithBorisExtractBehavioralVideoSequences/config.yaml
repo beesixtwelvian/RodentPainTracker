@@ -1,0 +1,37 @@
+&BorisToVideoSequences_frame = tk.Frame(root)# bloc ligne de formulaire
+&BorisToVideoSequences_frame.pack()
+&BorisToVideoSequences_var_check = tk.BooleanVar(BorisToVideoSequences_frame)# variable d'état de la case à cocher
+&BorisToVideoSequences_var_check.set(False)# valeur par défaut
+&BorisToVideoSequences_button = tk.Checkbutton(BorisToVideoSequences_frame, text="", variable=BorisToVideoSequences_var_check)# Créer une case à cocher
+&BorisToVideoSequences_button.pack(side=tk.LEFT)
+&label = tk.Label(BorisToVideoSequences_frame, text="selon l'ethogramme BORIS .xlsx, extraire les sequences")
+&label.pack(side=tk.LEFT)
+&ExtractWhat = tk.StringVar(BorisToVideoSequences_frame)
+&ExtractWhat.set("videos")
+&ExtractWhat1 = tk.Radiobutton(BorisToVideoSequences_frame, text="videos", value="videos", variable=ExtractWhat)
+&ExtractWhat1.pack(side=tk.LEFT)
+&ExtractWhat2 = tk.Radiobutton(BorisToVideoSequences_frame, text="images", value="images", variable=ExtractWhat)
+&ExtractWhat2.pack(side=tk.LEFT)
+&label = tk.Label(BorisToVideoSequences_frame, text="comportementales")
+&label.pack(side=tk.LEFT)
+&AntiBehavior = tk.BooleanVar(BorisToVideoSequences_frame)
+&AntiBehavior.set(False)
+&AntiBehavior_var_check = tk.Checkbutton(BorisToVideoSequences_frame, text="et anticomportementales", variable=AntiBehavior)
+&AntiBehavior_var_check.pack(side=tk.LEFT)
+&label = tk.Label(BorisToVideoSequences_frame, text=", avec un trimming de")
+&label.pack(side=tk.LEFT)
+&SeqTrim = tk.Entry(BorisToVideoSequences_frame)# Créer la saisie de valeur
+&SeqTrim.insert(0, 0.000)
+&SeqTrim.pack(side=tk.LEFT)
+&label = tk.Label(BorisToVideoSequences_frame, text="secondes (si images, extraire toutes les")
+&label.pack(side=tk.LEFT)
+&ImagesStep = tk.Entry(BorisToVideoSequences_frame)# Créer la saisie de valeur
+&ImagesStep.insert(0, 1)
+&ImagesStep.pack(side=tk.LEFT)
+&label = tk.Label(BorisToVideoSequences_frame, text="images), et ranger par dossiers")
+&label.pack(side=tk.LEFT)
+&command += "global BorisToVideoSequences_var_check; BorisToVideoSequences_var_check = BorisToVideoSequences_var_check.get();"
+&command += "global ExtractWhat; ExtractWhat = ExtractWhat.get();"
+&command += "global AntiBehavior; AntiBehavior = AntiBehavior.get();"
+&command += "global SeqTrim; SeqTrim = float(SeqTrim.get());"
+&command += "global ImagesStep; ImagesStep = int(ImagesStep.get());"

@@ -1,0 +1,9 @@
+&YoloBodyCleanedCsvToVideo_frame = tk.Frame(root)# bloc ligne de formulaire
+&YoloBodyCleanedCsvToVideo_frame.pack()
+&YoloBodyCleanedCsvToVideo_var_check = tk.BooleanVar(YoloBodyCleanedCsvToVideo_frame)# variable d'état de la case à cocher
+&YoloBodyCleanedCsvToVideo_var_check.set(False)# valeur par défaut
+&YoloBodyCleanedCsvToVideo_button = tk.Checkbutton(YoloBodyCleanedCsvToVideo_frame, text="", variable=YoloBodyCleanedCsvToVideo_var_check)# Créer une case à cocher
+&YoloBodyCleanedCsvToVideo_button.pack(side=tk.LEFT)
+&label = tk.Label(YoloBodyCleanedCsvToVideo_frame, text="avec le fichier .body.csv de detection du corps cree, generer une video .body.mp4 centree sur le corps de l'animal")
+&label.pack(side=tk.LEFT)
+&command += "global YoloBodyCleanedCsvToVideo_var_check; YoloBodyCleanedCsvToVideo_var_check = YoloBodyCleanedCsvToVideo_var_check.get();"

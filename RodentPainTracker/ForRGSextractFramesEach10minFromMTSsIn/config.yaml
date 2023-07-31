@@ -1,0 +1,15 @@
+&RGS10min_frame = tk.Frame(root)# bloc ligne de formulaire
+&RGS10min_frame.pack()
+&RGS10min_var_check = tk.BooleanVar(RGS10min_frame)# variable d état de la case à cocher
+checkbox&False&RGS10min_var_check.set(&)# valeur par défaut
+&RGS10min_button = tk.Checkbutton(RGS10min_frame, text="", variable=RGS10min_var_check)# Créer une case à cocher
+&RGS10min_button.pack(side=tk.LEFT)
+&label = tk.Label(RGS10min_frame, text="extraire des images, en vue de faire le Grimace Scale manuellement, toutes les")
+&label.pack(side=tk.LEFT)
+&RGS10min_var_eachtime = tk.Entry(RGS10min_frame)# Créer la saisie de valeur
+eachtime&10&RGS10min_var_eachtime.insert(0, &)
+&RGS10min_var_eachtime.pack(side=tk.LEFT)
+&label = tk.Label(RGS10min_frame, text="minutes (10 par convention)")
+&label.pack(side=tk.LEFT)
+&command += 'global RGS10min_var_check; RGS10min_var_check = RGS10min_var_check.get();'
+&command += 'global RGS10min_var_eachtime; RGS10min_var_eachtime = RGS10min_var_eachtime.get();'

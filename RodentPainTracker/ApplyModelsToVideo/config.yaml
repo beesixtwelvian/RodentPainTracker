@@ -1,0 +1,9 @@
+&ApplyModelsToVideo_frame = tk.Frame(root)# bloc ligne de formulaire
+&ApplyModelsToVideo_frame.pack()
+&ApplyModelsToVideo_var_check = tk.BooleanVar(ApplyModelsToVideo_frame)# variable d'état de la case à cocher
+&ApplyModelsToVideo_var_check.set(False)# valeur par défaut
+&ApplyModelsToVideo_button = tk.Checkbutton(ApplyModelsToVideo_frame, text="", variable=ApplyModelsToVideo_var_check)# Créer une case à cocher
+&ApplyModelsToVideo_button.pack(side=tk.LEFT)
+&label = tk.Label(ApplyModelsToVideo_frame, text="appliquer les modeles de classification binaire .h5 (une fois crees) a la / aux video(s)")
+&label.pack(side=tk.LEFT)
+&command += "global ApplyModelsToVideo_var_check; ApplyModelsToVideo_var_check = ApplyModelsToVideo_var_check.get();"

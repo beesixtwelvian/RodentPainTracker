@@ -1,0 +1,9 @@
+&YoloBodyDetectionToCleanedCsv_frame = tk.Frame(root)# bloc ligne de formulaire
+&YoloBodyDetectionToCleanedCsv_frame.pack()
+&YoloBodyDetectionToCleanedCsv_var_check = tk.BooleanVar(YoloBodyDetectionToCleanedCsv_frame)# variable d'état de la case à cocher
+&YoloBodyDetectionToCleanedCsv_var_check.set(False)# valeur par défaut
+&YoloBodyDetectionToCleanedCsv_button = tk.Checkbutton(YoloBodyDetectionToCleanedCsv_frame, text="", variable=YoloBodyDetectionToCleanedCsv_var_check)# Créer une case à cocher
+&YoloBodyDetectionToCleanedCsv_button.pack(side=tk.LEFT)
+&label = tk.Label(YoloBodyDetectionToCleanedCsv_frame, text="detecter pour chaque image le corps de l'animal, et enregistrer les donnees de localisation dans un fichier .body.csv")
+&label.pack(side=tk.LEFT)
+&command += "global YoloBodyDetectionToCleanedCsv_var_check; YoloBodyDetectionToCleanedCsv_var_check = YoloBodyDetectionToCleanedCsv_var_check.get();"
